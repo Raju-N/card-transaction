@@ -1,0 +1,17 @@
+<h2 class="current-balance">
+    <span class="balance-text">Current Balance</span>
+    <span class="total-balance">{{selectedCard?.currentBalance | currency:'INR'}}</span>
+</h2>
+<div class="transactions">
+    <!-- TXN comp<input type="text" [(ngModel)]="userQuer"> -->
+    <ul class="transactions-list-view">
+        <li *ngFor="let transaction of selectedCard?.transactions">
+            <div class="transaction-description">
+                <h6>{{transaction.id}}</h6>
+                <p>{{transaction.description}} on {{transaction.transactionDate | date:'d/M/y'}}</p>
+            </div>
+            <span class="amount"
+                [style.color]="transaction.type === 'debit' ? 'red': 'green'">{{transaction.amount | currency:'INR'}}</span>
+        </li>
+    </ul>
+</div>

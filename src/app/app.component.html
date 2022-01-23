@@ -1,4 +1,13 @@
+<mat-drawer-container class="example-container" autosize>
+    <app-header [title]="'Payment Details'" (menuClick)="onMenuClick(drawer)"></app-header>
 
-<h1 class="header-text">Payment details</h1>
+    <mat-drawer #drawer class="example-sidenav" mode="push">
+        <mat-list>
+            <mat-list-item> Pepper </mat-list-item>
+            <mat-list-item> Salt </mat-list-item>
+            <mat-list-item> Paprika </mat-list-item>
+        </mat-list>
+    </mat-drawer>
 
-<app-home></app-home>
+    <app-home></app-home>
+</mat-drawer-container>

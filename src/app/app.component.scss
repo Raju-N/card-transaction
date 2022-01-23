@@ -4,3 +4,11 @@ $header-font-size: 28px;
     font-size: $header-font-size;
     text-align: center;
 }
+
+.example-container{
+    min-height: 100vh;
+}
+
+.example-sidenav{
+    min-width: 200px;
+}

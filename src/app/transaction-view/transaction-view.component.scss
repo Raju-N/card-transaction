@@ -1,0 +1,40 @@
+/* START: TRANSACTION VIEW */
+
+.current-balance,
+.transactions-list-view {
+  padding: 10px;
+}
+
+.current-balance,
+.transactions-list-view li {
+  display: flex;
+  align-items: center;
+}
+
+.current-balance .balance-text {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.transactions-list-view li {
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid;
+}
+
+.balance-text,
+.transaction-description {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.transaction-description > h6 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.transaction-description > p {
+  font-size: 12px;
+}
+
+/* END: TRANSACTION VIEW */

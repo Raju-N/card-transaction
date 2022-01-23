@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { card } from 'src/interfaces';
+import { card } from '../interfaces';
 
 @Component({
   selector: 'app-bank-card',

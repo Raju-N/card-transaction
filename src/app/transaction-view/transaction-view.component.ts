@@ -1,4 +1,4 @@
-import { card } from './../../interfaces';
+import { card } from '../interfaces';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

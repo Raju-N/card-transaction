@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { card } from 'src/interfaces';
+import { card } from '../interfaces';
 import { ApiService } from '../ApiService/api.service';
 
 @Component({

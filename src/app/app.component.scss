@@ -1,14 +1,18 @@
 $header-font-size: 28px;
 
-.header-text{
-    font-size: $header-font-size;
-    text-align: center;
+.header-text {
+  font-size: $header-font-size;
+  text-align: center;
 }
 
-.example-container{
-    min-height: 100vh;
+.app-container {
+  min-height: 100vh;
 }
 
-.example-sidenav{
-    min-width: 200px;
+.app-sidenav {
+  min-width: 200px;
+  & ::ng-deep .mat-list-item {
+    cursor: pointer;
+    border-bottom: 1px solid #cecece;
+  }
 }

@@ -1,0 +1,16 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { HomeComponent } from './home.component';
+import { BankCardComponent } from './components/bank-card/bank-card.component';
+import { TransactionViewComponent } from './components/transaction-view/transaction-view.component';
+
+import { ApiService } from './service/api.service';
+import { SharedModule } from 'src/app/shared/shared.module';
+
+@NgModule({
+  declarations: [HomeComponent, BankCardComponent, TransactionViewComponent],
+  imports: [CommonModule, SharedModule],
+  providers: [ApiService],
+})
+export class HomeModule {}

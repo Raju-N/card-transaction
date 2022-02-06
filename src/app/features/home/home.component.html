@@ -1,0 +1,26 @@
+<div>
+  <div class="card-txn-wrapper">
+    <!--START: Wallet-->
+    <aside class="wallet">
+      <div class="cards">
+        <!-- START: CARD DESIGN -->
+        <div class="credit-card-container">
+          <app-bank-card
+            *ngFor="let card of cards"
+            [cardDetail]="card"
+            (cardSelectEvent)="onCardSelectEvent($event)"
+          ></app-bank-card>
+        </div>
+        <!-- END: CARD DESIGN -->
+      </div>
+    </aside>
+    <!--END: Wallet-->
+
+    <content class="transactions-wrapper">
+      <input type="text" [appTextCaseTransform]="'lowercase'" />
+      <input type="text" [appTextCaseTransform]="'uppercase'" />
+      <!-- <input type="text" [(ngModel)]="userQuer"> -->
+      <app-transaction-view [cardDetail]="selectedCard"></app-transaction-view>
+    </content>
+  </div>
+</div>

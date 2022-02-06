@@ -1,0 +1,120 @@
+<div class="form-container">
+  <!-- <pre>{{ f.value | json }}</pre> -->
+
+  <form class="app-form" #f="ngForm" autocomplete="off">
+    <h3 class="mb-3">Registration Form - Template Driven</h3>
+    <fieldset>
+      <input
+        placeholder="Your name"
+        type="text"
+        name="username"
+        ngModel
+        #username="ngModel"
+        required
+        minlength="2"
+        pattern="[A-Za-z]*"
+      />
+
+      <div *ngIf="username.invalid && username.dirty">
+        <p class="error-msg" *ngIf="username.errors?.required">
+          Enter username
+        </p>
+        <p class="error-msg" *ngIf="username.errors?.minlength">
+          Enter minimum
+          {{ username.errors?.minlength?.requiredLength }} characters
+        </p>
+        <p class="error-msg" *ngIf="username.errors?.pattern">
+          Enter valid username
+        </p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Your Email Address"
+        type="email"
+        name="email"
+        ngModel
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Your Phone Number (optional)"
+        type="tel"
+        name="phoneNumber"
+        ngModel
+      />
+    </fieldset>
+    <fieldset>
+      <textarea
+        placeholder="Type your message here...."
+        name="description"
+        ngModel
+      ></textarea>
+    </fieldset>
+    <fieldset ngModelGroup="cardType">
+      <label class="mr-4"><strong>Card Type:</strong></label>
+      <label for="credit" class="mr-2"
+        >Credit Card<input
+          id="credit"
+          type="checkbox"
+          name="creditCard"
+          ngModel
+      /></label>
+      <label for="debit" class="mr-2"
+        >Debit Card<input id="debit" type="checkbox" name="debitCard" ngModel
+      /></label>
+      <label for="corporate"
+        >Corporate Card<input
+          id="corporate"
+          type="checkbox"
+          name="corporateCard"
+          #corporateEl
+          ngModel
+      /></label>
+    </fieldset>
+    <fieldset *ngIf="corporateEl.checked">
+      <select name="company" ngModel required>
+        <option value="">Select company</option>
+        <option value="CMP1">Company 1</option>
+        <option value="CMP2">Company 2</option>
+        <option value="CMP3">Company 3</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label class="mr-4"><strong>Gender:</strong></label>
+      <label for="male" class="mr-2"
+        >Male<input id="male" type="radio" name="gender" value="male" ngModel
+      /></label>
+      <label for="female" class="mr-2"
+        >Female<input
+          id="female"
+          type="radio"
+          name="gender"
+          value="female"
+          ngModel
+      /></label>
+      <label for="other"
+        >Other<input
+          id="other"
+          type="radio"
+          name="gender"
+          value="other"
+          ngModel
+      /></label>
+    </fieldset>
+    <fieldset>
+      <select name="state" ngModel>
+        <option value="">Select State</option>
+        <option value="AP">Andhra</option>
+        <option value="KAR">Karnataka</option>
+        <option value="KER">Kerala</option>
+        <option value="TN">Tamil Nadu</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <button class="primary" [disabled]="f.invalid" (click)="onSubmit(f)">
+        Submit
+      </button>
+    </fieldset>
+  </form>
+</div>

@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { card } from '../interfaces';
-import { ApiService } from '../ApiService/api.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { card } from 'src/app/shared/interface/card.interface';
+import { ApiService } from './service/api.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   cards: card[] = [];
   selectedCard: card | null = null;
   userQuer = '';
@@ -17,11 +16,9 @@ export class HomeComponent implements OnInit {
     this.cards = this.api.getCards();
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onCardSelectEvent(selectedCard: card){
+  onCardSelectEvent(selectedCard: card) {
     this.selectedCard = selectedCard;
   }
-
 }

@@ -1,0 +1,182 @@
+<div class="form-container">
+  <!-- <pre>{{ form.value | json }}</pre> -->
+  <form class="app-form" [formGroup]="form">
+    <h3 class="mb-3">Registration Form - Reactive</h3>
+    <fieldset>
+      <input placeholder="Your name" type="text" formControlName="username" />
+      <div *ngIf="username?.invalid && username?.dirty">
+        <p class="error-msg" *ngIf="username?.errors?.required">
+          Enter username
+        </p>
+        <p class="error-msg" *ngIf="username?.errors?.minlength">
+          Enter minimum
+          {{ username?.errors?.minlength?.requiredLength }}
+          characters
+        </p>
+        <p class="error-msg" *ngIf="username?.errors?.pattern">
+          Enter valid username
+        </p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Your Email Address"
+        type="email"
+        formControlName="email"
+      />
+    </fieldset>
+    <fieldset>
+      <input
+        placeholder="Your Phone Number (optional)"
+        type="tel"
+        formControlName="phoneNumber"
+      />
+
+      <div *ngIf="form.get('phoneNumber')?.pending">
+        Checking phone number availability
+      </div>
+
+      <div
+        *ngIf="
+          form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.dirty
+        "
+      >
+        <p
+          class="error-msg"
+          *ngIf="form.get('phoneNumber')?.errors?.validIndianMobile"
+        >
+          Mobile number should start with digit 6-9
+        </p>
+        <p
+          class="error-msg"
+          *ngIf="form.get('phoneNumber')?.errors?.phoneNumberExist"
+        >
+          Phone number already exists
+        </p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <textarea
+        placeholder="Type your message here...."
+        formControlName="description"
+      ></textarea>
+    </fieldset>
+    <fieldset formGroupName="cardType">
+      <label class="mr-4"><strong>Card Type:</strong></label>
+      <label for="credit" class="mr-2"
+        >Credit Card<input
+          id="credit"
+          type="checkbox"
+          #ccEl
+          formControlName="creditCard"
+      /></label>
+      <label for="debit" class="mr-2"
+        >Debit Card<input
+          id="debit"
+          type="checkbox"
+          formControlName="debitCard"
+      /></label>
+      <label for="corporate"
+        >Corporate Card<input
+          id="corporate"
+          type="checkbox"
+          #corporateEl
+          (click)="onCorporateCardSelect(corporateEl)"
+          formControlName="corporateCard"
+      /></label>
+    </fieldset>
+
+    <fieldset *ngIf="ccEl.checked">
+      <input
+        placeholder="Enter Credit card number"
+        type="text"
+        formControlName="username"
+      />
+      <input
+        placeholder="Enter CVV number"
+        type="text"
+        formControlName="username"
+      />
+    </fieldset>
+
+    <fieldset *ngIf="corporateEl.checked">
+      <select formControlName="company">
+        <option value="">Select company</option>
+        <option value="CMP1">Company 1</option>
+        <option value="CMP2">Company 2</option>
+        <option value="CMP3">Company 3</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label class="mr-4"><strong>Gender:</strong></label>
+      <label for="male" class="mr-2"
+        >Male<input
+          id="male"
+          type="radio"
+          name="gender"
+          value="male"
+          formControlName="gender"
+      /></label>
+      <label for="female" class="mr-2"
+        >Female<input
+          id="female"
+          type="radio"
+          name="gender"
+          value="female"
+          formControlName="gender"
+      /></label>
+      <label for="other"
+        >Other<input
+          id="other"
+          type="radio"
+          name="gender"
+          value="other"
+          formControlName="gender"
+      /></label>
+    </fieldset>
+    <fieldset>
+      <select formControlName="state">
+        <option value="">Select State</option>
+        <option value="AP">Andhra</option>
+        <option value="KAR">Karnataka</option>
+        <option value="KER">Kerala</option>
+        <option value="TN">Tamil Nadu</option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <input
+        type="text"
+        placeholder="Add Asset"
+        #assetEl
+        (keyup.enter)="onAddAsset(assetEl)"
+      />
+    </fieldset>
+    <div>
+      <ul class="list-group">
+        <li
+          *ngFor="let asset of assets.controls"
+          (click)="onAssetRemove(asset)"
+        >
+          {{ asset.value }}
+        </li>
+      </ul>
+    </div>
+    <fieldset>
+      <button
+        class="primary mr-3"
+        [disabled]="form.invalid"
+        (click)="onSubmit()"
+      >
+        Submit
+      </button>
+
+      <button class="primary mr-3" (click)="onSetValue()">Set Value</button>
+
+      <button class="primary mr-3" (click)="onPatchValue()">Patch Value</button>
+
+      <button class="primary" (click)="onReset()">Reset</button>
+
+      <!-- <button class="primary" (click)="onSubmit()">Submit</button> -->
+    </fieldset>
+  </form>
+</div>

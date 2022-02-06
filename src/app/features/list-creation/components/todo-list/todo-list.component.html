@@ -1,0 +1,36 @@
+<form class="form-container" (keydown.enter)="$event.preventDefault()">
+  <fieldset>
+    <input
+      type="text"
+      placeholder="Add TODO"
+      #assetEl
+      (keyup.enter)="createList(assetEl)"
+    />
+  </fieldset>
+  <div>
+    <!-- <ul class="list-group">
+          <li *ngFor="let list of lists">
+            {{ list.title }}
+          </li>
+        </ul> -->
+
+    <table class="list-table">
+      <thead>
+        <th>User ID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Completion status</th>
+        <th>Action</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of lists">
+          <td>{{ list.userId }}</td>
+          <td>{{ list.id }}</td>
+          <td>{{ list.title }}</td>
+          <td>{{ list.completed }}</td>
+          <td><button type="button" (click)="onDelete(list)">Del</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

@@ -1,24 +1,29 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { card } from '../interfaces';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
+import { card } from 'src/app/shared/interface/card.interface';
 
 @Component({
   selector: 'app-bank-card',
   templateUrl: './bank-card.component.html',
   styleUrls: ['./bank-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BankCardComponent implements OnInit {
-
   @Input() cardDetail: card | any;
 
   @Output() cardSelectEvent = new EventEmitter();
 
   userQuer = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onCardSelect() {
     this.cardSelectEvent.emit(this.cardDetail);
@@ -33,6 +38,4 @@ export class BankCardComponent implements OnInit {
     }
     return digits;
   }
-
-
 }

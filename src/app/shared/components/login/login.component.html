@@ -1,0 +1,27 @@
+<div class="form-container">
+  <form class="app-form" #f="ngForm" autocomplete="off">
+    <h3 class="mb-3">Login</h3>
+    <fieldset>
+      <input placeholder="Enter Username" type="text" name="username" ngModel />
+    </fieldset>
+
+    <fieldset>
+      <input
+        placeholder="Enter Password"
+        type="password"
+        name="password"
+        ngModel
+      />
+    </fieldset>
+
+    <div *ngIf="isInValidCredentials">
+      <p class="error-msg">Invalid Username or Password</p>
+    </div>
+
+    <fieldset>
+      <button class="primary" [disabled]="f.invalid" (click)="onSubmit(f)">
+        Submit
+      </button>
+    </fieldset>
+  </form>
+</div>

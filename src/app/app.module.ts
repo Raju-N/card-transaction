@@ -11,6 +11,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 
 import { SharedModule } from './shared/shared.module';
+// import { HomeModule } from './features/home/home.module';
+// import { ListCreationModule } from './features/list-creation/list-creation.module';
+// import { CardApplicationModule } from './features/card-application/card-application.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +25,9 @@ import { SharedModule } from './shared/shared.module';
     MatSidenavModule,
     MatListModule,
     SharedModule,
+    // HomeModule,
+    // CardApplicationModule,
+    // ListCreationModule,
   ],
   bootstrap: [AppComponent],
 })

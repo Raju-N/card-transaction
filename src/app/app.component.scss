@@ -15,4 +15,17 @@ $header-font-size: 28px;
     cursor: pointer;
     border-bottom: 1px solid #cecece;
   }
+
+  .indent-left {
+    padding-left: 16px;
+  }
+
+  .active {
+    background-color: #32b10c;
+    color: #fff;
+  }
+
+  .active-child {
+    background-color: lighten(#32b10c, 40%);
+  }
 }

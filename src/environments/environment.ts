@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  navBgColor: '#4caf50',
+  todoAPI: 'https://jsonplaceholder.typicode.com/dev/todos',
 };
 
 /*

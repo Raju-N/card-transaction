@@ -21,4 +21,28 @@ export class HomeComponent implements OnInit {
   onCardSelectEvent(selectedCard: card) {
     this.selectedCard = selectedCard;
   }
+
+  onRefresh() {
+    // this.selectedCard?.transactions.push({
+    //   id: 1000003,
+    //   description: 'Transfer from BCCI',
+    //   type: 'credit',
+    //   amount: Math.random() * 100000,
+    //   transactionDate: 'Tue, 20 Jul 2021 07:20:05 GMT',
+    // });
+
+    const updatedcard: any = { ...this.selectedCard };
+
+    updatedcard?.transactions.push({
+      id: 1000003,
+      description: 'Transfer from BCCI',
+      type: 'credit',
+      amount: Math.random() * 100000,
+      transactionDate: 'Tue, 20 Jul 2021 07:20:05 GMT',
+    });
+
+    this.selectedCard = updatedcard;
+
+    console.log(this.selectedCard?.transactions);
+  }
 }

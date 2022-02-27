@@ -1,5 +1,9 @@
-<header class="header-wrapper">
-    <img src="https://credopay.com/siteImages/home-images/CredoPaylogo.png" class="app-logo" alt="App logo">
-    <span class="menu" (click)="onMenuClick()">Menu</span>
-    <h1 class="header-title">{{title}}</h1>
+<header class="header-wrapper" [style.backgroundColor]="bgColor">
+  <img
+    src="https://credopay.com/siteImages/home-images/CredoPaylogo.png"
+    class="app-logo"
+    alt="App logo"
+  />
+  <span class="menu" (click)="onMenuClick()">Menu</span>
+  <h1 class="header-title">{{ title }}</h1>
 </header>

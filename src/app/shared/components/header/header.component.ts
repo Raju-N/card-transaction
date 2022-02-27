@@ -1,23 +1,23 @@
+import { environment } from './../../../../environments/environment';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   @Input() title: string = '';
 
   @Output() menuClick = new EventEmitter();
 
-  constructor() { }
+  bgColor = environment.navBgColor;
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
-  onMenuClick(){
+  ngOnInit(): void {}
+
+  onMenuClick() {
     this.menuClick.emit();
   }
-
 }

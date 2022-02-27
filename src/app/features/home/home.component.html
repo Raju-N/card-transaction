@@ -19,6 +19,9 @@
     <content class="transactions-wrapper">
       <input type="text" [appTextCaseTransform]="'lowercase'" />
       <input type="text" [appTextCaseTransform]="'uppercase'" />
+
+      <button class="primary" (click)="onRefresh()">Refresh</button>
+
       <!-- <input type="text" [(ngModel)]="userQuer"> -->
       <app-transaction-view [cardDetail]="selectedCard"></app-transaction-view>
     </content>

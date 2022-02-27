@@ -26,13 +26,13 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'home',
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     loadChildren: () =>
       import('./features/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'apply-card',
-    canActivate: [AuthGuardService],
+    //canActivate: [AuthGuardService],
     loadChildren: () =>
       import('./features/card-application/card-application.module').then(
         (m) => m.CardApplicationModule
@@ -40,7 +40,7 @@ const routes: Routes = [
   },
   {
     path: 'task',
-    canActivate: [AuthGuardService, AuthorizationGuardService],
+    //canActivate: [AuthGuardService, AuthorizationGuardService],
     loadChildren: () =>
       import('./features/list-creation/list-creation.module').then(
         (m) => m.ListCreationModule
